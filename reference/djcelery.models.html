@@ -1,4 +1,3 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -56,119 +55,21 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="django-models-celery-models">
-<h1>Django Models - celery.models<a class="headerlink" href="#django-models-celery-models" title="Permalink to this headline">¶</a></h1>
-<dl class="data">
-<dt id="TASK_STATUS_PENDING">
-<tt class="descname">TASK_STATUS_PENDING</tt><a class="headerlink" href="#TASK_STATUS_PENDING" title="Permalink to this definition">¶</a></dt>
-<dd><p>The string status of a pending task.</p>
-</dd></dl>
+<div class="deck">
 
-<dl class="data">
-<dt id="TASK_STATUS_RETRY">
-<tt class="descname">TASK_STATUS_RETRY</tt><a class="headerlink" href="#TASK_STATUS_RETRY" title="Permalink to this definition">¶</a></dt>
-<dd><p>The string status of a task which is to be retried.</p>
-</dd></dl>
+    <h2>Documentation has MOVED!</h2>
+    <p>
+    The django-celery documentation has been moved  as a subsection
+    of the main Celery documentation.
 
-<dl class="data">
-<dt id="TASK_STATUS_FAILURE">
-<tt class="descname">TASK_STATUS_FAILURE</tt><a class="headerlink" href="#TASK_STATUS_FAILURE" title="Permalink to this definition">¶</a></dt>
-<dd><p>The string status of a failed task.</p>
-</dd></dl>
-
-<dl class="data">
-<dt id="TASK_STATUS_DONE">
-<tt class="descname">TASK_STATUS_DONE</tt><a class="headerlink" href="#TASK_STATUS_DONE" title="Permalink to this definition">¶</a></dt>
-<dd><p>The string status of a task that was successfully executed.</p>
-</dd></dl>
-
-<dl class="data">
-<dt id="TASK_STATUSES">
-<tt class="descname">TASK_STATUSES</tt><a class="headerlink" href="#TASK_STATUSES" title="Permalink to this definition">¶</a></dt>
-<dd><p>List of possible task statuses.</p>
-</dd></dl>
-
-<dl class="data">
-<dt id="TASK_STATUSES_CHOICES">
-<tt class="descname">TASK_STATUSES_CHOICES</tt><a class="headerlink" href="#TASK_STATUSES_CHOICES" title="Permalink to this definition">¶</a></dt>
-<dd><p>Django tuple of possible values for the task statuses, for usage in
-model/form fields <tt class="docutils literal"><span class="pre">choices</span></tt> argument.</p>
-</dd></dl>
-
-<dl class="class">
-<dt id="TaskMeta">
-<em class="property">class </em><tt class="descname">TaskMeta</tt><a class="headerlink" href="#TaskMeta" title="Permalink to this definition">¶</a></dt>
-<dd><p>Model for storing the result and status of a task.</p>
-<p><em>Note</em> Only used if you&#8217;re running the <tt class="docutils literal"><span class="pre">database</span></tt> backend.</p>
-<dl class="attribute">
-<dt id="TaskMeta.task_id">
-<tt class="descname">task_id</tt><a class="headerlink" href="#TaskMeta.task_id" title="Permalink to this definition">¶</a></dt>
-<dd><p>The unique task id.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="TaskMeta.status">
-<tt class="descname">status</tt><a class="headerlink" href="#TaskMeta.status" title="Permalink to this definition">¶</a></dt>
-<dd><p>The current status for this task.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="TaskMeta.result">
-<tt class="descname">result</tt><a class="headerlink" href="#TaskMeta.result" title="Permalink to this definition">¶</a></dt>
-<dd><p>The result after successful/failed execution. If the task failed,
-this contains the execption it raised.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="TaskMeta.date_done">
-<tt class="descname">date_done</tt><a class="headerlink" href="#TaskMeta.date_done" title="Permalink to this definition">¶</a></dt>
-<dd><p>The date this task changed status.</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="class">
-<dt id="PeriodicTaskMeta">
-<em class="property">class </em><tt class="descname">PeriodicTaskMeta</tt><a class="headerlink" href="#PeriodicTaskMeta" title="Permalink to this definition">¶</a></dt>
-<dd><p>Metadata model for periodic tasks.</p>
-<dl class="attribute">
-<dt id="PeriodicTaskMeta.name">
-<tt class="descname">name</tt><a class="headerlink" href="#PeriodicTaskMeta.name" title="Permalink to this definition">¶</a></dt>
-<dd><p>The name of this task, as registered in the task registry.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="PeriodicTaskMeta.last_run_at">
-<tt class="descname">last_run_at</tt><a class="headerlink" href="#PeriodicTaskMeta.last_run_at" title="Permalink to this definition">¶</a></dt>
-<dd><p>The date this periodic task was last run. Used to find out
-when it should be run next.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="PeriodicTaskMeta.total_run_count">
-<tt class="descname">total_run_count</tt><a class="headerlink" href="#PeriodicTaskMeta.total_run_count" title="Permalink to this definition">¶</a></dt>
-<dd><p>The number of times this periodic task has been run.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="PeriodicTaskMeta.task">
-<tt class="descname">task</tt><a class="headerlink" href="#PeriodicTaskMeta.task" title="Permalink to this definition">¶</a></dt>
-<dd><p>The class/function for this task.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="PeriodicTaskMeta.delay">
-<tt class="descname">delay</tt><big>(</big><big>)</big><a class="headerlink" href="#PeriodicTaskMeta.delay" title="Permalink to this definition">¶</a></dt>
-<dt>
-<tt class="descname">Delay the execution of a periodic task, and increment its total</tt></dt>
-<dt>
-<tt class="descname">run count.</tt></dt>
-<dd></dd></dl>
-
-</dd></dl>
+    Go to the
+    <a href="http://celery.github.com/celery/django/">Development
+        documentation</a>,
+    or the <a href="http://docs.celeryproject.org/en/latest/django">Stable
+        documentation</a>.
+    </p>
 
 </div>
-
 
           </div>
         </div>

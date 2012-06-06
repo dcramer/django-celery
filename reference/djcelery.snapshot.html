@@ -1,4 +1,3 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -56,137 +55,21 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="event-snapshots-djcelery-snapshot">
-<h1>Event Snapshots - djcelery.snapshot<a class="headerlink" href="#event-snapshots-djcelery-snapshot" title="Permalink to this headline">¶</a></h1>
-<span class="target" id="module-djcelery.snapshot"></span><dl class="class">
-<dt id="djcelery.snapshot.Camera">
-<em class="property">class </em><tt class="descclassname">djcelery.snapshot.</tt><tt class="descname">Camera</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#djcelery.snapshot.Camera" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="class">
-<dt id="djcelery.snapshot.Camera.TaskState">
-<em class="property">class </em><tt class="descname">TaskState</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#djcelery.snapshot.Camera.TaskState" title="Permalink to this definition">¶</a></dt>
-<dd><p>TaskState(id, state, task_id, name, tstamp, args, kwargs, eta, expires, result, traceback, runtime, retries, worker_id, hidden)</p>
-<dl class="exception">
-<dt id="djcelery.snapshot.Camera.TaskState.DoesNotExist">
-<em class="property">exception </em><tt class="descname">DoesNotExist</tt><a class="headerlink" href="#djcelery.snapshot.Camera.TaskState.DoesNotExist" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<div class="deck">
 
-<dl class="exception">
-<dt id="djcelery.snapshot.Camera.TaskState.MultipleObjectsReturned">
-<em class="property">exception </em><tt class="descclassname">Camera.TaskState.</tt><tt class="descname">MultipleObjectsReturned</tt><a class="headerlink" href="#djcelery.snapshot.Camera.TaskState.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+    <h2>Documentation has MOVED!</h2>
+    <p>
+    The django-celery documentation has been moved  as a subsection
+    of the main Celery documentation.
 
-<dl class="method">
-<dt id="djcelery.snapshot.Camera.TaskState.get_next_by_tstamp">
-<tt class="descclassname">Camera.TaskState.</tt><tt class="descname">get_next_by_tstamp</tt><big>(</big><em>*moreargs</em>, <em>**morekwargs</em><big>)</big><a class="headerlink" href="#djcelery.snapshot.Camera.TaskState.get_next_by_tstamp" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="djcelery.snapshot.Camera.TaskState.get_previous_by_tstamp">
-<tt class="descclassname">Camera.TaskState.</tt><tt class="descname">get_previous_by_tstamp</tt><big>(</big><em>*moreargs</em>, <em>**morekwargs</em><big>)</big><a class="headerlink" href="#djcelery.snapshot.Camera.TaskState.get_previous_by_tstamp" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="djcelery.snapshot.Camera.TaskState.get_state_display">
-<tt class="descclassname">Camera.TaskState.</tt><tt class="descname">get_state_display</tt><big>(</big><em>*moreargs</em>, <em>**morekwargs</em><big>)</big><a class="headerlink" href="#djcelery.snapshot.Camera.TaskState.get_state_display" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="djcelery.snapshot.Camera.TaskState.objects">
-<tt class="descclassname">Camera.TaskState.</tt><tt class="descname">objects</tt><em class="property"> = &lt;djcelery.managers.TaskStateManager object at 0x106d35710&gt;</em><a class="headerlink" href="#djcelery.snapshot.Camera.TaskState.objects" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="djcelery.snapshot.Camera.TaskState.worker">
-<tt class="descclassname">Camera.TaskState.</tt><tt class="descname">worker</tt><a class="headerlink" href="#djcelery.snapshot.Camera.TaskState.worker" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="class">
-<dt id="djcelery.snapshot.Camera.WorkerState">
-<em class="property">class </em><tt class="descclassname">Camera.</tt><tt class="descname">WorkerState</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#djcelery.snapshot.Camera.WorkerState" title="Permalink to this definition">¶</a></dt>
-<dd><p>WorkerState(id, hostname, last_heartbeat)</p>
-<dl class="exception">
-<dt id="djcelery.snapshot.Camera.WorkerState.DoesNotExist">
-<em class="property">exception </em><tt class="descname">DoesNotExist</tt><a class="headerlink" href="#djcelery.snapshot.Camera.WorkerState.DoesNotExist" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="exception">
-<dt id="djcelery.snapshot.Camera.WorkerState.MultipleObjectsReturned">
-<em class="property">exception </em><tt class="descclassname">Camera.WorkerState.</tt><tt class="descname">MultipleObjectsReturned</tt><a class="headerlink" href="#djcelery.snapshot.Camera.WorkerState.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="djcelery.snapshot.Camera.WorkerState.heartbeat_timestamp">
-<tt class="descclassname">Camera.WorkerState.</tt><tt class="descname">heartbeat_timestamp</tt><a class="headerlink" href="#djcelery.snapshot.Camera.WorkerState.heartbeat_timestamp" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="djcelery.snapshot.Camera.WorkerState.is_alive">
-<tt class="descclassname">Camera.WorkerState.</tt><tt class="descname">is_alive</tt><big>(</big><big>)</big><a class="headerlink" href="#djcelery.snapshot.Camera.WorkerState.is_alive" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="djcelery.snapshot.Camera.WorkerState.objects">
-<tt class="descclassname">Camera.WorkerState.</tt><tt class="descname">objects</tt><em class="property"> = &lt;djcelery.managers.ExtendedManager object at 0x106d78a50&gt;</em><a class="headerlink" href="#djcelery.snapshot.Camera.WorkerState.objects" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="djcelery.snapshot.Camera.WorkerState.taskstate_set">
-<tt class="descclassname">Camera.WorkerState.</tt><tt class="descname">taskstate_set</tt><a class="headerlink" href="#djcelery.snapshot.Camera.WorkerState.taskstate_set" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="attribute">
-<dt id="djcelery.snapshot.Camera.clear_after">
-<tt class="descclassname">Camera.</tt><tt class="descname">clear_after</tt><em class="property"> = True</em><a class="headerlink" href="#djcelery.snapshot.Camera.clear_after" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="djcelery.snapshot.Camera.expire_states">
-<tt class="descclassname">Camera.</tt><tt class="descname">expire_states</tt><em class="property"> = {frozenset(['SUCCESS']): datetime.timedelta(1), frozenset(['STARTED', 'RECEIVED', 'RETRY', 'PENDING']): datetime.timedelta(5), frozenset(['FAILURE', 'RETRY', 'REVOKED']): datetime.timedelta(3)}</em><a class="headerlink" href="#djcelery.snapshot.Camera.expire_states" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="djcelery.snapshot.Camera.get_heartbeat">
-<tt class="descclassname">Camera.</tt><tt class="descname">get_heartbeat</tt><big>(</big><em>worker</em><big>)</big><a class="headerlink" href="#djcelery.snapshot.Camera.get_heartbeat" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="djcelery.snapshot.Camera.handle_task">
-<tt class="descclassname">Camera.</tt><tt class="descname">handle_task</tt><big>(</big><em>(uuid</em>, <em>task)</em>, <em>worker=None</em><big>)</big><a class="headerlink" href="#djcelery.snapshot.Camera.handle_task" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="djcelery.snapshot.Camera.handle_worker">
-<tt class="descclassname">Camera.</tt><tt class="descname">handle_worker</tt><big>(</big><em>(hostname</em>, <em>worker)</em><big>)</big><a class="headerlink" href="#djcelery.snapshot.Camera.handle_worker" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="djcelery.snapshot.Camera.on_cleanup">
-<tt class="descclassname">Camera.</tt><tt class="descname">on_cleanup</tt><big>(</big><big>)</big><a class="headerlink" href="#djcelery.snapshot.Camera.on_cleanup" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="djcelery.snapshot.Camera.on_shutter">
-<tt class="descclassname">Camera.</tt><tt class="descname">on_shutter</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#djcelery.snapshot.Camera.on_shutter" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="djcelery.snapshot.Camera.update_task">
-<tt class="descclassname">Camera.</tt><tt class="descname">update_task</tt><big>(</big><em>state</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#djcelery.snapshot.Camera.update_task" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="djcelery.snapshot.Camera.worker_update_freq">
-<tt class="descclassname">Camera.</tt><tt class="descname">worker_update_freq</tt><em class="property"> = 60</em><a class="headerlink" href="#djcelery.snapshot.Camera.worker_update_freq" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
+    Go to the
+    <a href="http://celery.github.com/celery/django/">Development
+        documentation</a>,
+    or the <a href="http://docs.celeryproject.org/en/latest/django">Stable
+        documentation</a>.
+    </p>
 
 </div>
-
 
           </div>
         </div>

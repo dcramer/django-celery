@@ -1,4 +1,3 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -56,76 +55,21 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="views-djcelery-views">
-<h1>Views - djcelery.views<a class="headerlink" href="#views-djcelery-views" title="Permalink to this headline">¶</a></h1>
-<span class="target" id="module-djcelery.views"></span><dl class="function">
-<dt id="djcelery.views.JsonResponse">
-<tt class="descclassname">djcelery.views.</tt><tt class="descname">JsonResponse</tt><big>(</big><em>response</em><big>)</big><a class="headerlink" href="#djcelery.views.JsonResponse" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<div class="deck">
 
-<dl class="function">
-<dt id="djcelery.views.apply">
-<tt class="descclassname">djcelery.views.</tt><tt class="descname">apply</tt><big>(</big><em>request</em>, <em>task_name</em><big>)</big><a class="headerlink" href="#djcelery.views.apply" title="Permalink to this definition">¶</a></dt>
-<dd><p>View applying a task.</p>
-<dl class="docutils">
-<dt><strong>Note:</strong> Please use this with caution. Preferably you shouldn&#8217;t make this</dt>
-<dd>publicly accessible without ensuring your code is safe!</dd>
-</dl>
-</dd></dl>
+    <h2>Documentation has MOVED!</h2>
+    <p>
+    The django-celery documentation has been moved  as a subsection
+    of the main Celery documentation.
 
-<dl class="function">
-<dt id="djcelery.views.is_task_successful">
-<tt class="descclassname">djcelery.views.</tt><tt class="descname">is_task_successful</tt><big>(</big><em>request</em>, <em>task_id</em><big>)</big><a class="headerlink" href="#djcelery.views.is_task_successful" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns task execute status in JSON format.</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="djcelery.views.registered_tasks">
-<tt class="descclassname">djcelery.views.</tt><tt class="descname">registered_tasks</tt><big>(</big><em>request</em><big>)</big><a class="headerlink" href="#djcelery.views.registered_tasks" title="Permalink to this definition">¶</a></dt>
-<dd><p>A view returning all defined tasks as a JSON object.</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="djcelery.views.task_status">
-<tt class="descclassname">djcelery.views.</tt><tt class="descname">task_status</tt><big>(</big><em>request</em>, <em>task_id</em><big>)</big><a class="headerlink" href="#djcelery.views.task_status" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns task status and result in JSON format.</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="djcelery.views.task_view">
-<tt class="descclassname">djcelery.views.</tt><tt class="descname">task_view</tt><big>(</big><em>task</em><big>)</big><a class="headerlink" href="#djcelery.views.task_view" title="Permalink to this definition">¶</a></dt>
-<dd><p>Decorator turning any task into a view that applies the task
-asynchronously. Keyword arguments (via URLconf, etc.) will
-supercede GET or POST parameters when there are conflicts.</p>
-<dl class="docutils">
-<dt>Returns a JSON dictionary containing the keys <tt class="docutils literal"><span class="pre">ok</span></tt>, and</dt>
-<dd><tt class="docutils literal"><span class="pre">task_id</span></tt>.</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
-<dt id="djcelery.views.task_webhook">
-<tt class="descclassname">djcelery.views.</tt><tt class="descname">task_webhook</tt><big>(</big><em>fun</em><big>)</big><a class="headerlink" href="#djcelery.views.task_webhook" title="Permalink to this definition">¶</a></dt>
-<dd><p>Decorator turning a function into a task webhook.</p>
-<p>If an exception is raised within the function, the decorated
-function catches this and returns an error JSON response, otherwise
-it returns the result as a JSON response.</p>
-<p>Example:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="nd">@task_webhook</span>
-<span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">GET</span><span class="p">[</span><span class="s">&quot;x&quot;</span><span class="p">])</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">GET</span><span class="p">[</span><span class="s">&quot;y&quot;</span><span class="p">])</span>
-    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
-
-<span class="o">&gt;&gt;&gt;</span> <span class="n">response</span> <span class="o">=</span> <span class="n">add</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">response</span><span class="o">.</span><span class="n">content</span>
-<span class="s">&#39;{&quot;status&quot;: &quot;success&quot;, &quot;retval&quot;: 100}&#39;</span>
-</pre></div>
-</div>
-</dd></dl>
+    Go to the
+    <a href="http://celery.github.com/celery/django/">Development
+        documentation</a>,
+    or the <a href="http://docs.celeryproject.org/en/latest/django">Stable
+        documentation</a>.
+    </p>
 
 </div>
-
 
           </div>
         </div>
