@@ -5,6 +5,248 @@
 .. contents::
     :local:
 
+.. _version-2.5.5:
+
+2.5.5
+=====
+:release-date: 2012-04-19 01:46 P.M BST
+
+* Fixed bug where task modules were not imported.
+
+.. _version-2.5.4:
+
+2.5.4
+=====
+:release-date: 2012-04-16 06:31 P.M BST
+
+* Compatibility with celery 2.5.3
+
+* Database scheduler now imports ``exchange``, ``routing_key`` and ``queue``
+  options from ``CELERYBEAT_SCHEDULE``.
+
+.. _version-2.5.3:
+
+2.5.3
+=====
+:release-date: 2012-04-13 06:16 P.M BST
+:by: Ask Solem
+
+* 2.5.2 release broke installation because of an import in the package.
+
+    Fixed by not having setup.py import the djcelery module anymore,
+    but rather parsing the package file for metadata.
+
+.. _version-2.5.2:
+
+2.5.2
+=====
+:release-date: 2012-04-13 05:00 P.M BST
+:by: Ask Solem
+
+.. _v251-news:
+
+* PeriodicTask admin now lists the enabled field in the list view
+
+    Contributed by Gabe Jackson.
+
+.. _v251-fixes:
+
+* Fixed a compatibility issue with Django < 1.3
+
+    Fix contributed by Roman Barczyski
+
+* Admin monitor now properly escapes args and kwargs.
+
+    Fix contributed by Serj Zavadsky
+
+* PeriodicTask admin now gives error if no schedule set (or both set)
+  (Issue #126).
+
+* examples/demoproject has been updated to use the Django 1.4 template.
+
+* Database connection is no longer closed for eager tasks (Issue #116).
+
+    Fix contributed by Mark Lavin.
+
+* The first-steps document for django-celery has been moved to the main
+  Celery documentation.
+
+* djcelerymon command no longer worked properly, this has now been fixed
+  (Issue #123).
+
+.. _version-2.5.1:
+
+2.5.1
+=====
+:release-date: 2012-03-01 01:00 P.M GMT
+:by: Ask Solem
+
+.. _v251-fixes:
+
+Fixes
+-----
+
+* Now depends on Celery 2.5.1
+
+* Fixed problem with recursive imports when USE_I18N was enabled
+  (Issue #109).
+
+* The ``CELERY_DB_REUSE_MAX`` setting was not honored.
+
+* The djcelerymon command no longer runs with DEBUG.
+
+    To enable debug you can set the :envvar:`DJCELERYMON_DEBUG`
+    environment variable.
+
+* Fixed eventlet/gevent compatability with Django 1.4's new thread
+  sharing detection.
+
+* Now depends on django-picklefield 0.2.0 or greater.
+
+    Previous versions would not work correctly with Django 1.4.
+
+.. _version-2.5.0:
+
+2.5.0
+=====
+:release-date: 2012-02-24 02:00 P.M GMT
+:by: Ask Solem
+
+.. _v250-important:
+
+Important Notes
+---------------
+
+* Now depends on Celery 2.5.
+
+* Database schema has been updated.
+
+    After upgrading you need migrate using South, or migrate manually
+    as described below.
+
+    These changes means that expiring results will be faster and
+    take less memory than before.
+
+    In addition a description field to the PeriodicTask model has
+    been added so that the purpose of a periodic task
+    in the database can be documented via the Admin interface.
+
+    **South Migration**
+
+    To migrate using South execute the following command::
+
+        $ python manage.py migrate djcelery
+
+    If this is a new project that is also using South then you need
+    to fake the migration:
+
+        $ python manage.y migrate djcelery --fake
+
+    **Manual Migration**
+
+    To manually add the new fields,
+
+    using PostgreSQL:
+
+    .. code-block: sql
+
+        ALTER TABLE celery_taskmeta
+            ADD hidden BOOLEAN NOT NULL DEFAULT FALSE;
+
+        ALTER TABLE celery_tasksetmeta
+            ADD hidden BOOLEAN NOT NULL DEFAULT FALSE;
+
+        ALTER TABLE djcelery_periodictask
+            ADD description TEXT NOT NULL DEFAULT ""
+
+    using MySQL:
+
+    .. code-block:: sql
+
+        ALTER TABLE celery_taskmeta
+            ADD hidden TINYINT NOT NULL DEFAULT 0;
+
+        ALTER TABLE celery_tasksetmeta
+            ADD hidden TINYINT NOT NULL DEFAULT 0;
+
+        ALTER TABLE djcelery_periodictask
+            ADD description TEXT NOT NULL DEFAULT "";
+
+    using SQLite:
+
+    .. code-block:: sql
+
+        ALTER TABLE celery_taskmeta
+            ADD hidden BOOL NOT NULL DEFAULT FALSE;
+        ALTER TABLE celery_tasksetmeta
+            ADD hidden BOOL NOT NULL DEFAULT FALSE;
+        ALTER TABLE djcelery_periodictask
+            ADD description VARCHAR(200) NOT NULL DEFAULT "";
+
+.. _v250-news:
+
+News
+----
+
+* Auto-discovered task modules now works with the new auto-reloader
+  functionality.
+
+* The database periodic task scheduler now tried to recover from
+  operational database errors.
+
+* The periodic task schedule entry now accepts both int and
+  timedelta (Issue #100).
+
+* 'Connection already closed' errors occurring while closing
+  the database connection are now ignored (Issue #93).
+
+* The ``djcelerymon`` command used to start a Django admin monitor
+  instance outside of Django projects now starts without a celery
+  config module.
+
+* Should now work with Django 1.4's new timezone support.
+
+   Contributed by Jannis Leidel and Donald Stufft.
+
+* South migrations did not work properly.
+
+    Fix contributed by Christopher Grebs.
+
+* celeryd-multi now preserves django-related arguments,
+  like ``--settings`` (Issue #94).
+
+
+* Migrations now work with Django < 1.3 (Issue #92).
+
+    Fix contributed by Jude Nagurney.
+
+* The expiry of the database result backend can now be an int (Issue #84).
+
+
+.. _version-2.4.2:
+
+2.4.2
+=====
+:release-date: 2011-11-14 12:00 P.M GMT
+
+* Fixed syntax error in South migrations code (Issue #88).
+
+    Fix contributed by Olivier Tabone.
+
+.. _version-2.4.1:
+
+2.4.1
+=====
+:release-date: 2011-11-07 06:00 P.M GMT
+:by: Ask Solem
+
+* Management commands was missing command line arguments because of recent
+  changes to Celery.
+
+* Management commands now supports the ``--broker|-b`` option.
+
+* South migrations now ignores errors when tables already exist.
+
 .. _version-2.4.0:
 
 2.4.0
@@ -33,7 +275,7 @@ News
 
     Migration 0001 is a snapshot from the previous stable release (2.3.3).
     For those who do not use South, no action is required.
-    South users will want to read the :ref:`240-upgrade-south` section
+    South users will want to read the :ref:`240-upgrade_south` section
     below.
 
     Contributed by Greg Taylor.
