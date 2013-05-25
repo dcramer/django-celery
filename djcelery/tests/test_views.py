@@ -59,7 +59,7 @@ def create_exception(name, base=Exception):
 def catch_exception(exception):
     try:
         raise exception
-    except exception.__class__, exc:
+    except exception.__class__ as exc:
         exc = current_app.backend.prepare_exception(exc)
         return exc, ExceptionInfo(sys.exc_info()).traceback
 
@@ -70,7 +70,7 @@ class ViewTestCase(DjangoTestCase):
         json = isinstance(json, HttpResponse) and json.content or json
         try:
             self.assertEqual(deserialize(json), py)
-        except TypeError, exc:
+        except TypeError as exc:
             raise TypeError("%s: %s" % (exc, json))
 
     def assertIn(self, expected, source, *args):
